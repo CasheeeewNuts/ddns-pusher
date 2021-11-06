@@ -1,6 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import * as apiGateway from "@aws-cdk/aws-apigateway"
 import {NodejsFunction} from "@aws-cdk/aws-lambda-nodejs"
+import * as secretsManager from "@aws-cdk/aws-secretsmanager"
 import {createExecutionRole} from "./Role";
 
 
@@ -16,9 +17,20 @@ export class DdnsPusherStack extends cdk.Stack {
             role: createExecutionRole(this)
         })
 
+        const secret = new secretsManager.Secret(this, "DdnsPusherSecret", {
+            description: "A APIkey for APIGateway that is entrypoint of DDNS-Pusher",
+            secretName: "DdnsPusherAPIKey",
+            generateSecretString: {
+                generateStringKey: "apiKey",
+                secretStringTemplate: "{}",
+                excludeCharacters: ' %+~`#$&*()|[]{}:;<>?!\'/@"\\',
+            }
+        })
+
         const gateway: apiGateway.RestApi = new apiGateway.RestApi(this, 'DdnsPusherGateway')
         const apiKey: apiGateway.ApiKey = new apiGateway.ApiKey(this, 'DdnsPusherAPIKey', {
             apiKeyName: 'DdnsPusherAPIKey',
+            value: secret.secretValueFromJson('apiKey').toString(),
             enabled: true
         })
 
@@ -34,5 +46,7 @@ export class DdnsPusherStack extends cdk.Stack {
         gateway.root.addMethod('POST', new apiGateway.LambdaIntegration(lambdaFunction), {
             apiKeyRequired: true
         })
+
+
     }
 }

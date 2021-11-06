@@ -9,6 +9,7 @@
     "@aws-cdk/aws-apigateway": "^1.130.0",
     "@aws-cdk/aws-iam": "^1.130.0",
     "@aws-cdk/aws-lambda-nodejs": "^1.130.0",
+    "@aws-cdk/aws-secretsmanager": "^1.130.0",
     "@aws-cdk/core": "^1.130.0",
     "@types/aws-lambda": "^8.10.85",
     "@types/node": "^16.11.6",
