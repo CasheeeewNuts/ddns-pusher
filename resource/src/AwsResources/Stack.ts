@@ -2,7 +2,6 @@ import * as cdk from '@aws-cdk/core';
 import * as apiGateway from "@aws-cdk/aws-apigateway"
 import {NodejsFunction} from "@aws-cdk/aws-lambda-nodejs"
 import {createExecutionRole} from "./Role";
-import * as process from "process";
 
 
 export class DdnsPusherStack extends cdk.Stack {

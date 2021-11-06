@@ -3,7 +3,7 @@
 import * as cdk from '@aws-cdk/core';
 import { DdnsPusherStack } from '../src/AwsResources/Stack';
 import "dotenv/config"
-import * as process from "process";
+
 
 const {HOSTED_ZONE_ID} = process.env
 
