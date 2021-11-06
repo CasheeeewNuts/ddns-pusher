@@ -1,0 +1,25 @@
+{
+  "name": "resource",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "CasheeeewNuts",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.130.0",
+    "@aws-cdk/aws-iam": "^1.130.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.130.0",
+    "@aws-cdk/core": "^1.130.0",
+    "@types/aws-lambda": "^8.10.85",
+    "@types/node": "^16.11.6",
+    "aws-cdk": "^1.130.0",
+    "aws-lambda": "^1.0.6",
+    "aws-sdk": "^2.1023.0",
+    "dotenv": "^10.0.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+    "app": "yarn ts-node --prefer-ts-exts bin/app.ts"
+  }
+}

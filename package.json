@@ -1,0 +1,14 @@
+{
+  "name": "ddns-pusher",
+  "version": "0.1.0",
+  "description": "A full ddns application with AWS Route53 and Lambda",
+  "author": "CasheeeewNuts",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "resource",
+      "daemon"
+    ]
+  }
+}
