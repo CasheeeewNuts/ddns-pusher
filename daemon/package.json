@@ -1,0 +1,16 @@
+{
+  "name": "daemon",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "CasheeeewNuts",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec ts-node src/main.ts"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.14",
+    "ts-node": "^10.4.0"
+  }
+}
