@@ -1,13 +1,17 @@
 import * as AWS from "aws-sdk"
 
+
 type Props = {
     ip: AWS.Route53.RData
     domainName: AWS.Route53.DNSName,
     hostedZoneId: AWS.Route53.ResourceId,
-    route53: AWS.Route53
+    route53: AWS.Route53,
+    ttl: AWS.Route53.TTL
 }
 
-export async function updateARecord({ip, domainName, hostedZoneId, route53}: Props): Promise<AWS.Route53.ChangeResourceRecordSetsResponse> {
+export const DEFAULT_TTL = 300
+
+export async function updateARecord({ip, domainName, hostedZoneId, route53, ttl}: Props): Promise<AWS.Route53.ChangeResourceRecordSetsResponse> {
     const params: AWS.Route53.ChangeResourceRecordSetsRequest = {
         HostedZoneId: hostedZoneId,
         ChangeBatch: {
@@ -20,7 +24,7 @@ export async function updateARecord({ip, domainName, hostedZoneId, route53}: Pro
                             Value: ip
                         }
                     ],
-                    TTL: 60,
+                    TTL: ttl,
                     Type: "A"
                 }
             }]
