@@ -20,6 +20,9 @@
     "typescript": "^4.4.4"
   },
   "scripts": {
-    "app": "yarn ts-node --prefer-ts-exts bin/app.ts"
+    "app": "yarn ts-node --prefer-ts-exts bin/app.ts",
+    "synthesize": "yarn cdk synthesize",
+    "deploy": "yarn cdk deploy",
+    "destory": "yarn cdk destroy"
   }
 }
